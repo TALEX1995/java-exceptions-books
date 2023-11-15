@@ -18,18 +18,13 @@ public class Book {
 		public String getTitle() {
 			return title;
 		}
-		public void setTitle(String title) {
+		public void setTitle(String title) throws Exception {
 			
-//			Try and catch
-			try {
+
 				if(title.isEmpty() || title == null) {
 					throw new Exception("Errore: Il titolo non può essere nullo o vuoto");
 				}
-				this.title = title;
-			} catch (Exception e){
-				System.out.println(e.getMessage());
-			}
-			
+				this.title = title;	
 		}
 
 //		PAGE NUMBER
@@ -37,16 +32,13 @@ public class Book {
 			return pageNumber;
 		}
 
-		public void setPageNumber(int pageNumber) {
-//			Try and catch
-			try {
+		public void setPageNumber(int pageNumber) throws Exception {
+
+
 				if(pageNumber <= 0) {
 					throw new Exception("Errore: Il numero di pagine non può essere zero o inferiore");
 				}
 				this.pageNumber = pageNumber;
-			} catch (Exception e){
-				System.out.println(e.getMessage());
-			}
 		}
 
 		
@@ -55,16 +47,12 @@ public class Book {
 			return author;
 		}
 
-		public void setAuthor(String author) {
-//			Try and catch
-			try {
+		public void setAuthor(String author) throws Exception {
+			
 				if(author.isEmpty() || author == null) {
 					throw new Exception("Errore: L'autore non può essere nullo o vuoto");
 				}
 				this.author = author;
-			} catch (Exception e){
-				System.out.println(e.getMessage());
-			}
 		}
 
 		
@@ -73,15 +61,21 @@ public class Book {
 			return editor;
 		}
 
-		public void setEditor(String editor) {
-//			Try and catch
-			try {
+		public void setEditor(String editor) throws Exception {
+
 				if(editor.isEmpty() || editor == null) {
 					throw new Exception("Errore: L'editore non può essere nullo o vuoto");
 				}
 				this.editor = editor;
-			} catch (Exception e){
-				System.out.println(e.getMessage());
-			}
+
+		}
+		
+		@Override
+		public String toString() {
+		
+		return "Titolo: " + title
+				+ "\nNumero pagine: " + pageNumber
+				+ "\nAutore: " + author
+				+"\nEditore: " + editor;
 		}
 }
